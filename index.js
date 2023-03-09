@@ -12,7 +12,7 @@ const app = express();
 const IMAGES_DIR_PATH = path.join(__dirname, "images");
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "/public")));
+//app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.static(path.join(__dirname, "images")));
 
 app.get("/", (req, res) => res.send("Hello Server!"));
