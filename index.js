@@ -1,6 +1,8 @@
 const express = require("express");
 //import { importImagesUrls } from "./utils/images";
 const path = require("path");
+const BASE_URL = process.env.BASE_URL;
+const PORT = process.env.PORT || 9000;
 
 const fs = require("fs/promises");
 const { encode } = require("blurhash");
@@ -12,7 +14,7 @@ const app = express();
 const IMAGES_DIR_PATH = path.join(__dirname, "images");
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "/public")));
+//app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.static(path.join(__dirname, "images")));
 
 app.get("/", (req, res) => res.send("Hello Server!"));
@@ -57,5 +59,5 @@ async function encodeAllImages() {
 }
 
 app.listen(9000, () => {
-  console.log("Server listening on PORT", 9000);
+  console.log("Server listening on PORT", { PORT });
 });
